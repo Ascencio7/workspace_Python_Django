@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Personas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <link rel='stylesheet' type='text/css' media='screen'>
+  </head>
+  <body>
+    <h1>Personas</h1>
+    <p>Este es mi equipo</p>
+
+    <a href="{% url 'personaCrear-url' %}">
+      <button type="button">
+        Nuevo</button>
+    </a>
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for form in personas %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{form.nombre}}</td>
+              <td>{{form.apellido}}</td>
+              <td>{{form.edad}}</td>
+              <td>{{form.telefono}}</td>
+              
+              <td>
+                <a href="{% url 'personaEditar-url' form.id %}">
+                  <button type="button">Editar</button>
+                </a>
+                <a href="{% url 'personaBorrar-url' form.id %}">
+                  <button type="button">Borrar</button>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

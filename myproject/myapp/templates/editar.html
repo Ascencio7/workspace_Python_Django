@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Editar</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='stylesheet' type='text/css' media = 'screen'>
+    
+</head>
+<body>
+    <h1>Editar</h1>
+    <form method="POST" action="{% url 'personaActualizar-url' form.id %}">
+        {% csrf_token %}
+        <label class="form-label" for="nombre">Nombre:</label>
+        <input type="text" name="nombre" maxlength="255" id="nombre" value="{{ form.nombre}}" required>
+
+        <label class="form-label" for="apellido">Apellido:</label>
+        <input type="text" name="apellido" maxlength="255" id="apellido" value="{{ form.apellido}}" required>
+
+        <label class="form-label" for="edad">Edad:</label>
+        <input type="number" name="edad" maxlength="255" id="edad" value="{{ form.edad}}" required>
+
+        <label class="form-label" for="telefono">Telefono:</label>
+        <input type="text" name="telefono" maxlength="255" id="telefono" value="{{form.telefono}}" required>
+
+        <a href="{% url 'personas-url' %}"> <button type="button">Cancelar</button> </a>
+        <button type="submit">Guardar</button>
+
+    </form>
+</body>
+</html>

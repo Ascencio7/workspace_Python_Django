@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Crear</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='stylesheet' type='text/css' media = 'screen'>
+    
+</head>
+<body>
+    <h1>Crear</h1>
+    <form method="POST" action="{% url 'personaCrear-url' %}">
+        {% csrf_token %}
+        <label class="form-label" for="nombre">Nombre:</label>
+        <input type="text" name="nombre" maxlength="255" id="nombre" required>
+
+        <label class="form-label" for="apellido">Apellido:</label>
+        <input type="text" name="apellido" maxlength="255" id="apellido" required>
+
+        <label class="form-label" for="edad">Edad:</label>
+        <input type="number" name="edad" maxlength="255" id="edad" required>
+
+        <label class="form-label"  for="telefono">Telefono:</label>
+        <input type="text" name="telefono" maxlength="255" id="telefono" required>
+
+        <a href="{% url 'personas-url' %}"><button type="button">Cancelar</button></a>
+            <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
